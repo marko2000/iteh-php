@@ -9,11 +9,9 @@ if (isset($_POST['ocena_kriterijum'])) {
     $ocena->setTelefon_opis($_POST['telefon_opis']);
     $ocena->setTelefon_id($_POST['telefon_id']);
 
-
     $ocena->save();
 }
 ?>
-
 
 <!DOCTYPE HTML>
 <html>
@@ -81,6 +79,15 @@ if (isset($_POST['ocena_kriterijum'])) {
         }
     </script>
 
+    <nav class="navbar navbar-custom">
+        <ul class="nav navbar-nav navbar-custom">
+            <a href="index.php" class="navbar-left"><img src="images/logo.png" class="logo"></a>
+            <li><a href="index.php">Početna</a></li>
+            <li><a href="ocene.php">Ocene</a></li>
+            <li><a href="telefoni.php">Telefoni</a></li>
+        </ul>
+    </nav>
+
     <div class="about">
         <div class="container">
             <section class="title-section">
@@ -112,7 +119,7 @@ if (isset($_POST['ocena_kriterijum'])) {
                     <p style="margin-top: 15px;">Ocena</p>
                     <input type="text" class="form-control form-input" name="telefon_ocena">
                     <p></p><br><br>
-                    <button type="submit" class="form-control" class="btn btn-danger">Zapamti</button>
+                    <button type="submit" class="form-control" class="btn btn-danger">Oceni</button>
 
                 </form>
                 </p>

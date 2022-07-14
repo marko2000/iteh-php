@@ -43,7 +43,7 @@
                 var result = '';
                 var finalData = JSON.parse(data);
                 for (var i = 0; i < finalData.length; i++) {
-                    result += '<li value=' + finalData[i].telefon_id + '>*' + finalData[i].telefon_naziv + '</li>';
+                    result += '<li value=' + finalData[i].telefon_id + '>' + finalData[i].telefon_naziv + '</li>';
 
                 }
                 result += '<a style="color:red" href="telefoni.php">+ Dodaj novi telefon</a>';
@@ -127,6 +127,7 @@
             <a href="index.php" class="navbar-left"><img src="images/logo.png" class="logo"></a>
             <li><a href="index.php">Početna</a></li>
             <li><a href="ocene.php">Ocene</a></li>
+            <li><a href="telefoni.php">Telefoni</a></li>
         </ul>
     </nav>
 

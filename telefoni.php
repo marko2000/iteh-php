@@ -60,6 +60,15 @@ if (isset($_POST['telefon_naziv'])) {
         }
     </script>
 
+    <nav class="navbar navbar-custom">
+        <ul class="nav navbar-nav navbar-custom">
+            <a href="index.php" class="navbar-left"><img src="images/logo.png" class="logo"></a>
+            <li><a href="index.php">Početna</a></li>
+            <li><a href="ocene.php">Ocene</a></li>
+            <li><a href="telefoni.php">Telefoni</a></li>
+        </ul>
+    </nav>
+
     <div class="about">
         <div class="container">
             <section class="title-section">
@@ -88,7 +97,7 @@ if (isset($_POST['telefon_naziv'])) {
                     <p>Naziv telefona</p>
                     <input class="form-control" type="text" name="telefon_naziv">
                     <p></p><br><br>
-                    <button type="submit" class="form-control" class="btn btn-danger">Zapamti</button>
+                    <button type="submit" class="form-control" class="btn btn-danger">Dodaj</button>
                 </form>
 
 

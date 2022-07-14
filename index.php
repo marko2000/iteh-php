@@ -13,45 +13,38 @@
     <script src="js/script.js"></script>
 
     <script>
-        // Prikaz ocena
         $.get("controller.php", {
-                ocena: "show"
-            })
-            .done(function(data) {
-                var result = '';
-                var finalData = JSON.parse(data);
-                for (var i = 0; i < finalData.length; i++) {
-                    result += '<div class="blog_grid">' +
-                        '<h2 class="post_title">' + finalData[i].ocena_kriterijum + '</h2>' +
-                        '<ul class="links">' +
-                        '<li class="ocena-id"><i class="fa fa-calendar calendar-icon"></i>' + finalData[i].telefon_id + '</li>' +
-                        '<li class="opis">' + finalData[i].telefon_opis + '</li>' +
-                        '<li class="telefon-ocena"><i class="fa fa-star star-icon"></i>' + finalData[i].telefon_ocena+ '</li>' +
-                        '</ul>' +
-                        '</div>';
-                };
+            ocena: "show"
+        }).done(function(data) {
+            var result = '';
+            var finalData = JSON.parse(data);
+            for (var i = 0; i < finalData.length; i++) {
+                result += '<div class="blog_grid">' +
+                '<h2 class="post_title">' + finalData[i].ocena_kriterijum + '</h2>' +
+                '<ul class="links">' +
+                '<li class="ocena-id"><i class="fa fa-calendar calendar-icon"></i>' + finalData[i].telefon_id + '</li>' +
+                '<li class="opis">' + finalData[i].telefon_opis + '</li>' +
+                '<li class="telefon-ocena"><i class="fa fa-star star-icon"></i>' + finalData[i].telefon_ocena+ '</li>' +
+                '</ul>' +
+                '</div>';
+            };
 
-                $('#ocena').html(result);
-            });
+            $('#ocena').html(result);
+        });
 
-
-        // Prikaz telefona
         $.get("controller.php", {
-                telefon: "show"
-            })
-            .done(function(data) {
-                var result = '';
-                var finalData = JSON.parse(data);
-                for (var i = 0; i < finalData.length; i++) {
-                    result += '<li value=' + finalData[i].telefon_id + '>' + finalData[i].telefon_naziv + '</li>';
+            telefon: "show"
+        }).done(function(data) {
+            var result = '';
+            var finalData = JSON.parse(data);
+            for (var i = 0; i < finalData.length; i++) {
+                result += '<li value=' + finalData[i].telefon_id + '>' + finalData[i].telefon_naziv + '</li>';
+            }
+            
+            result += '<a style="color:red" href="telefoni.php">+ Dodaj novi telefon</a>';
+            $('#telefon').html(result);
+        });
 
-                }
-                result += '<a style="color:red" href="telefoni.php">+ Dodaj novi telefon</a>';
-                $('#telefon').html(result);
-            });
-
-
-        // // Sortiranje
         // function sortAsc() {
         //     $.get("controller.php", {
         //             ocena: "sortAsc"
@@ -94,29 +87,26 @@
         //         });
         // }
 
-
-
-        // Pretraga
         function search() {
             $.get("controller.php", {
-                    ocena: 'search',
-                    text: $('#search').val()
-                })
-                .done(function(data) {
-                    var result = '';
-                    var finalData = JSON.parse(data);
-                    for (var i = 0; i < finalData.length; i++) {
-                        result += '<div class="blog_grid">' +
-                            '<h2 class="post_title">' + finalData[i].ocena_kriterijum + '</h2>' +
-                            '<ul class="links">' +
-                            '<li><i class="fa fa-calendar"></i>' + finalData[i].telefon_id + '</li>' +
-                            '<li><i class="fa fa-globe"></i> ' + finalData[i].telefon_opis + '</li>' +
-                            '<li><i class="fa fa-star"></i>' + finalData[i].telefon_ocena + '</li>' +
-                            '</ul>' +
-                            '</div>';
-                    };
-                    $('#ocena').html(result);
-                });
+                ocena: 'search',
+                text: $('#search').val()
+            }).done(function(data) {
+                var result = '';
+                var finalData = JSON.parse(data);
+                for (var i = 0; i < finalData.length; i++) {
+                    result += '<div class="blog_grid">' +
+                    '<h2 class="post_title">' + finalData[i].ocena_kriterijum + '</h2>' +
+                    '<ul class="links">' +
+                    '<li><i class="fa fa-calendar"></i>' + finalData[i].telefon_id + '</li>' +
+                    '<li><i class="fa fa-globe"></i> ' + finalData[i].telefon_opis + '</li>' +
+                    '<li><i class="fa fa-star"></i>' + finalData[i].telefon_ocena + '</li>' +
+                    '</ul>' +
+                    '</div>';
+                };
+
+                $('#ocena').html(result);
+            });
         }
     </script>
 </head>
@@ -145,23 +135,19 @@
             <div class="col-md-6">
             </div>
         </div>
-    </div><br>
-
-
+    </div>
 
     <div class="container">
         <div class="row">
             <div class="col-md-6">
-                <input style="margin-bottom: 15px;" id="pretraga" type="search" onsearch="search()" class="form-control" placeholder="Pretraga..." onkeyup="search()" size="45">
-                <div id="ocena">
-                </div>
+                <input style="margin-bottom: 15px;" id="pretraga" type="search" onsearch="search()" class="form-control" placeholder="Pretraga..." onkeyup="search()" size="30">
+                <div id="ocena"></div>
             </div>
 
             <div class="col-md-6 svi-telefoni">
                 <h3>Spisak svih telefona:</h3>
-
-                <ul class="sidebar" id="telefon">
-                </ul>
+                <ul class="sidebar" id="telefon"></ul>
             </div>
         </div>
     </div>
+</body>

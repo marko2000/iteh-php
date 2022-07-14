@@ -11,25 +11,22 @@ $(document).ready(function() {
 				
 		if(ask) {
 			$.ajax({
-				  url: url,
-				  dataType: 'json',
-				  type: 'POST',
-				  data: {
-				  	id: id
-				  },
-				  success: function(json) {
+				url: url,
+				dataType: 'json',
+				type: 'POST',
+				data: {
+				id: id
+				},
+				success: function(json) {
 					alert(json.message);
 					  
 					if(json.success == true) {
-						$('tr#'+id).remove();
-					}
-					  
-				  }			  
-				});
+					$('tr#'+id).remove();
+					}  
+				}			  
+			});
 		}
 		
 		return false;
 	});
-	
 });
-
